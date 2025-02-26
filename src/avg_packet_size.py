@@ -1,3 +1,6 @@
+
+import sys
+
 import pyshark
 import numpy as np
 import matplotlib.pyplot as plt
@@ -43,4 +46,5 @@ plt.legend(filenames)
 plt.title('Average Packet Size Over Time')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Average Packet Size (bytes)')
+plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
 plt.show()

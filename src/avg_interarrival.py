@@ -1,3 +1,6 @@
+
+import sys
+
 import pyshark
 import numpy as np
 import matplotlib.pyplot as plt
@@ -15,4 +18,5 @@ plt.bar(x, ([get_avg_time_interval(filename) for filename in filenames]), color=
 plt.title('Packets inter-arrival average')
 plt.xlabel('')
 plt.ylabel('Seconds')
+plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
 plt.show()

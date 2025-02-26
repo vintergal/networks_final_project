@@ -19,9 +19,13 @@ pip install pandas numpy matplotlib pyshark
 
 ### Run the Analysis:
 ```bash
-git clone <repository_link>
-cd <repository_name>/src
-python analyze_traffic.py
+git clone <https://github.com/vintergal/networks_final_project>
+cd <https://github.com/vintergal/networks_final_project>/src
+python avg_packet_size.py
+python avg_interarrival.py
+python packets_count.py
+python flow_volume.py
+
 ```
 Results are shown in the `/res/` folder.
 
@@ -44,9 +48,9 @@ Results are shown in the `/res/` folder.
 
 
 ## Contributors
+- Adi Moskovich
 - Gal Vinter
 - Roei Yanku
-- Adi Moskovich
 - Ori Shpitz
 ---
 

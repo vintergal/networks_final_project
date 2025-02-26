@@ -1,3 +1,6 @@
+
+import sys
+
 import pyshark
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,6 +40,7 @@ plt.legend(filenames)
 plt.title('Flow volume - overall number of kilobytes transmitted')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Size (Kilobytes)')
+plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
 plt.show()
 
 

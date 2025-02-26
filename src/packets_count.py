@@ -1,3 +1,6 @@
+
+import sys
+
 import numpy
 import pyshark
 import numpy as np
@@ -39,4 +42,5 @@ plt.legend(filenames)
 plt.title('Packets count Over Time')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Number of packets')
+plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
 plt.show()
