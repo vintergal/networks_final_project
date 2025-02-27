@@ -1,12 +1,15 @@
 
 import sys
-
-import numpy
+from is_bonus import is_bonus
 import pyshark
 import numpy as np
 import matplotlib.pyplot as plt
 
-FIRST_SECS=5
+FIRST_SECS = 0
+if is_bonus:
+    FIRST_SECS=30
+else:
+    FIRST_SECS=5
 STEP=0.05
 
 def plot_graph(filename):
@@ -35,12 +38,19 @@ def plot_graph(filename):
     y=count.dot(matrix)
 
     plt.plot(x, y,marker='o')
-filenames=["chrome.pcapng","edge.pcapng","youtube_Video.pcapng","youtube_Music.pcapng","discord(video conferencing).pcapng"]
+x=0
+if is_bonus:
+    x = filenames = ["Bonus(listen to youtube music and send 2 mails).pcapng"]
+else:
+    x=filenames=["chrome.pcapng","edge.pcapng","youtube_Video.pcapng","youtube_Music.pcapng","discord(video conferencing).pcapng"]
 for filename in filenames:
     plot_graph(filename)
 plt.legend(filenames)
 plt.title('Packets count Over Time')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Number of packets')
-plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
+if is_bonus:
+    plt.savefig(f"../res/bonus_{sys.argv[0].split("\\")[-1][:-3]}")
+else:
+    plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
 plt.show()
