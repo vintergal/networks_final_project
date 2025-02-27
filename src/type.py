@@ -1,3 +1,3 @@
-type="regular"
+#type="regular"
 #type="bonus"
-#type="attacker"
+type="attacker"

@@ -16,10 +16,12 @@ This project analyzes traffic characteristics of common apps (web browsing, stre
 ```bash
 pip install numpy matplotlib pyshark
 ```
+- You must have pcap files to run the code on. Please add your own pcap files to the `/pcapng/` directory!
 
 ### Run the Analysis:
 ```bash
 git clone https://github.com/vintergal/networks_final_project
+cd networks_final_project
 cd src
 python avg_packet_size.py
 python avg_interarrival.py
@@ -27,6 +29,18 @@ python packets_count.py
 python flow_volume.py
 
 ```
+- if install not working, use the next commands:
+in the networks_final_project
+```bash
+
+python3 -m venv myenv
+source myenv/bin/activate
+pip install numpy
+pip install matplotlib
+pip install pyshark 
+pip install numpy matplotlib pyshark
+```
+
 Results are shown in the `/res/` folder.
 
 ---

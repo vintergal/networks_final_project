@@ -18,9 +18,6 @@ def plot_graph(filename):
     sizes = [0] * len(times)
     try:
         with pyshark.FileCapture(f"../pcapng/{filename}") as capture:
-            #,display_filter="(ipv6.dst == 2a06:c701:42ee:b300:98a:9e30:45c2:dcec || ipv6.src == 2a06:c701:42ee:b300:98a:9e30:45c2:dcec || ip.addr == 10.0.0.7)")
-
-
             for packet in capture:
                 if first_time==0:
                     first_time=float(packet.sniff_time.timestamp())
@@ -37,7 +34,7 @@ def plot_graph(filename):
             matrix = (1 - np.tril(np.ones([length, length]), -1))
             y = sizes.dot(matrix)/1e3
     except FileNotFoundError:
-        print("Error: file was not found.")
+        print("Error: file was not found or file is empty/corrupt.")
 
     plt.plot(x, y,marker='o')
 x=0
@@ -59,7 +56,8 @@ elif type=="attacker":
     plt.savefig(f"../res/randomAppUsage_{sys.argv[0].split("\\")[-1][:-3]}")
 else:
     plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
-plt.show()
+#plt.show()
+print("The image has been added to the /res/ directory")
 
 
 
