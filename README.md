@@ -24,9 +24,9 @@ git clone https://github.com/vintergal/networks_final_project
 cd networks_final_project
 cd src
 python avg_packet_size.py
-python avg_interarrival.py
 python packets_count.py
 python flow_volume.py
+python avg_interarrival.py
 
 ```
 - if install not working, use the next commands:
@@ -38,7 +38,6 @@ source myenv/bin/activate
 pip install numpy
 pip install matplotlib
 pip install pyshark 
-pip install numpy matplotlib pyshark
 ```
 
 Results are shown in the `/res/` folder.
