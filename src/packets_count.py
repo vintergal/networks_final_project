@@ -1,12 +1,12 @@
 
 import sys
-from is_bonus import is_bonus
+from type import type
 import pyshark
 import numpy as np
 import matplotlib.pyplot as plt
 
 FIRST_SECS = 0
-if is_bonus:
+if type=="bonus" or type=="attacker":
     FIRST_SECS=30
 else:
     FIRST_SECS=5
@@ -16,7 +16,7 @@ def plot_graph(filename):
     first_time = 0
     times = range(0, int(FIRST_SECS / STEP) + 1)
     count = [0] * len(times)
-    with pyshark.FileCapture(f"../{filename}") as capture:
+    with pyshark.FileCapture(f"../pcapng/{filename}") as capture:
         #,display_filter="(ipv6.dst == 2a06:c701:42ee:b300:98a:9e30:45c2:dcec || ipv6.src == 2a06:c701:42ee:b300:98a:9e30:45c2:dcec || ip.addr == 10.0.0.7)")
 
 
@@ -39,18 +39,22 @@ def plot_graph(filename):
 
     plt.plot(x, y,marker='o')
 x=0
-if is_bonus:
-    x = filenames = ["Bonus(listen to youtube music and send 2 mails).pcapng"]
+if type=="bonus":
+    x =  ["Bonus(listen to youtube music and send 2 mails).pcapng"]
+elif type=="attacker":
+    x = ["randomAppUsage.pcapng"]
 else:
-    x=filenames=["chrome.pcapng","edge.pcapng","youtube_Video.pcapng","youtube_Music.pcapng","discord(video conferencing).pcapng"]
-for filename in filenames:
+    x=["chrome.pcapng","edge.pcapng","youtube_Video.pcapng","youtube_Music.pcapng","discord(video conferencing).pcapng"]
+for filename in x:
     plot_graph(filename)
-plt.legend(filenames)
+plt.legend(x)
 plt.title('Packets count Over Time')
 plt.xlabel('Time (seconds)')
 plt.ylabel('Number of packets')
-if is_bonus:
+if type=="bonus":
     plt.savefig(f"../res/bonus_{sys.argv[0].split("\\")[-1][:-3]}")
+elif type=="attacker":
+    plt.savefig(f"../res/randomAppUsage_{sys.argv[0].split("\\")[-1][:-3]}")
 else:
     plt.savefig(f"../res/{sys.argv[0].split("\\")[-1][:-3]}")
 plt.show()

@@ -14,13 +14,13 @@ This project analyzes traffic characteristics of common apps (web browsing, stre
 - Python 3 (clean installation)
 - Install dependencies:
 ```bash
-pip install pandas numpy matplotlib pyshark
+pip install numpy matplotlib pyshark
 ```
 
 ### Run the Analysis:
 ```bash
-git clone <https://github.com/vintergal/networks_final_project>
-cd <https://github.com/vintergal/networks_final_project>/src
+git clone https://github.com/vintergal/networks_final_project
+cd src
 python avg_packet_size.py
 python avg_interarrival.py
 python packets_count.py
@@ -40,7 +40,7 @@ Results are shown in the `/res/` folder.
 ├── /src/                     # Python code
 ├── /res/                     # Analysis results (figures, plots)
 ├── /papers/                  # Research papers (excluded from GitHub)
-└── /pcap/                    # pcap files from wireshark (excluded from GitHub)
+└── /pcapng/                    # pcapng files from wireshark (excluded from GitHub)
 
 ```
 
@@ -56,6 +56,6 @@ Results are shown in the `/res/` folder.
 
 ## Submission Details
 - GitHub repo includes the full code, results, and final report.
-- `.pcap` files provided via cloud links (not included in GitHub).
+- `.pcapng` files provided via cloud links (not included in GitHub).
 - Code handles edge cases, uses relative paths, and is Linux-compatible.
 

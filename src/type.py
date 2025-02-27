@@ -1,1 +1,3 @@
-is_bonus=True
+type="regular"
+#type="bonus"
+#type="attacker"
